@@ -1,13 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>友情链接 | Domenic Zhang's Home</title><meta name="keywords" content="博客，学习分享，技术分享 - Blog, Learning share, Technology share"><meta name="author" content="Domenic Zhang,zhangdomenic@outlook.com"><meta name="copyright" content="Domenic Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的链接欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o 1234- name: Domenic Zhang&amp;#x27;s Blog  link: https:&#x2F;&#x2F;domeniczz.github.io  avatar: https:&#x2F;&#x2F;domeniczz.github.io&#x2F;img&#x2F;avatar.png  descr: 博客，学习分享，技术分享">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>友情链接 | Domenic Zhang's Home</title><meta name="keywords" content="博客，学习分享，技术分享 - Blog, Learning share, Technology share"><meta name="author" content="Domenic Zhang,zhangdomenic@outlook.com"><meta name="copyright" content="Domenic Zhang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="我的链接欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o - name: Domenic Zhang&amp;#x27;s Blog  link: https:&#x2F;&#x2F;domeniczz.github.io  avatar: https:&#x2F;&#x2F;domeniczz.github.io&#x2F;img&#x2F;avatar.png  descr: 博客，学习分享，技术分享">
 <meta property="og:type" content="website">
 <meta property="og:title" content="友情链接">
 <meta property="og:url" content="http://example.com/link/index.html">
 <meta property="og:site_name" content="Domenic Zhang&#39;s Home">
-<meta property="og:description" content="我的链接欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o 1234- name: Domenic Zhang&amp;#x27;s Blog  link: https:&#x2F;&#x2F;domeniczz.github.io  avatar: https:&#x2F;&#x2F;domeniczz.github.io&#x2F;img&#x2F;avatar.png  descr: 博客，学习分享，技术分享">
+<meta property="og:description" content="我的链接欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o - name: Domenic Zhang&amp;#x27;s Blog  link: https:&#x2F;&#x2F;domeniczz.github.io  avatar: https:&#x2F;&#x2F;domeniczz.github.io&#x2F;img&#x2F;avatar.png  descr: 博客，学习分享，技术分享">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/top_img/index_img_worldmap_default.jpg">
 <meta property="article:published_time" content="2021-12-27T18:51:59.000Z">
-<meta property="article:modified_time" content="2021-12-29T05:39:07.017Z">
+<meta property="article:modified_time" content="2021-12-29T08:28:46.464Z">
 <meta property="article:author" content="Domenic Zhang">
 <meta property="article:tag" content="博客，学习分享，技术分享 - Blog, Learning share, Technology share">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-12-29 13:39:07'
+  postUpdate: '2021-12-29 16:28:46'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -129,11 +129,26 @@
       }
       const t = saveToLocal.get('theme')
     
-          const now = new Date()
-          const hour = now.getHours()
-          const isNight = hour <= 6 || hour >= 18
-          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
-          else if (t === 'light') activateLightMode()
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
           else activateDarkMode()
         
       const asideStatus = saveToLocal.get('aside-status')
@@ -151,11 +166,11 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Domenic Zhang's Home" type="application/atom+xml">
-</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收纳</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fas fa-book-reader"></i><span> 博主</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('/img/top_img/index_img_worldmap_default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Domenic Zhang's Home</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收纳</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fas fa-book-reader"></i><span> 博主</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">友情链接</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><div class="flink"><h2>友链</h2><div class="flink-desc">那些人，那些事</div><div class="flink-list"><div class="flink-list-item"><a href="https://ray-ling7.github.io/" title="Ray-ling7's Blog" target="_blank"><div class="flink-item-icon"><img src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Ray-ling7's Blog"></div><div class="flink-item-name">Ray-ling7's Blog</div><div class="flink-item-desc" title="好友的技术分享博客">好友的技术分享博客</div></a></div><div class="flink-list-item"><a href="https://hexo.io/zh-tw/" title="Hexo" target="_blank"><div class="flink-item-icon"><img src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Hexo"></div><div class="flink-item-name">Hexo</div><div class="flink-item-desc" title="快速、简单且强大的网誌框架">快速、简单且强大的网誌框架</div></a></div></div><h2>网站</h2><div class="flink-desc">值得推荐的网站</div><div class="flink-list"><div class="flink-list-item"><a href="https://www.youtube.com/" title="Youtube" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Youtube"></div><div class="flink-item-name">Youtube</div><div class="flink-item-desc" title="视频网站">视频网站</div></a></div><div class="flink-list-item"><a href="https://twitter.com/" title="Twitter" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Twitter"></div><div class="flink-item-name">Twitter</div><div class="flink-item-desc" title="社交分享平台">社交分享平台</div></a></div><div class="flink-list-item"><a href="https://www.weibo.com/" title="Weibo" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Weibo"></div><div class="flink-item-name">Weibo</div><div class="flink-item-desc" title="中国最大社交分享平台">中国最大社交分享平台</div></a></div></div><h2 id="我的链接"><a href="#我的链接" class="headerlink" title="我的链接"></a>我的链接</h2><p>欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Domenic</span> <span class="string">Zhang&#x27;s</span> <span class="string">Blog</span></span><br><span class="line">  <span class="attr">link:</span> <span class="string">https://domeniczz.github.io</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://domeniczz.github.io/img/avatar.png</span></span><br><span class="line">  <span class="attr">descr:</span> <span class="string">博客，学习分享，技术分享</span></span><br></pre></td></tr></table></figure>
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="/css/scrollbar_custom_css.css"><link rel="stylesheet" href="/css/footer_custom_css.css"><link rel="stylesheet" href="/css/background_opacity_custom.css"><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Domenic Zhang's Home" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收纳</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fas fa-book-reader"></i><span> 博主</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header" style="background-image: url('/img/top_img/index_img_worldmap_default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Domenic Zhang's Home</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 收纳</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/myself/"><i class="fa-fw fas fa-book-reader"></i><span> 博主</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">友情链接</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><div class="flink"><h2>友链</h2><div class="flink-desc">那些人，那些事</div><div class="flink-list"><div class="flink-list-item"><a href="https://ray-ling7.github.io/" title="Ray-ling7's Blog" target="_blank"><div class="flink-item-icon"><img src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Ray-ling7's Blog"></div><div class="flink-item-name">Ray-ling7's Blog</div><div class="flink-item-desc" title="好友的技术分享博客">好友的技术分享博客</div></a></div><div class="flink-list-item"><a href="https://hexo.io/zh-tw/" title="Hexo" target="_blank"><div class="flink-item-icon"><img src="https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Hexo"></div><div class="flink-item-name">Hexo</div><div class="flink-item-desc" title="快速、简单且强大的网誌框架">快速、简单且强大的网誌框架</div></a></div></div><h2>网站</h2><div class="flink-desc">值得推荐的网站</div><div class="flink-list"><div class="flink-list-item"><a href="https://www.youtube.com/" title="Youtube" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Youtube"></div><div class="flink-item-name">Youtube</div><div class="flink-item-desc" title="视频网站">视频网站</div></a></div><div class="flink-list-item"><a href="https://twitter.com/" title="Twitter" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Twitter"></div><div class="flink-item-name">Twitter</div><div class="flink-item-desc" title="社交分享平台">社交分享平台</div></a></div><div class="flink-list-item"><a href="https://www.weibo.com/" title="Weibo" target="_blank"><div class="flink-item-icon"><img src="https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="Weibo"></div><div class="flink-item-name">Weibo</div><div class="flink-item-desc" title="中国最大社交分享平台">中国最大社交分享平台</div></a></div></div><h2 id="我的链接"><a href="#我的链接" class="headerlink" title="我的链接"></a>我的链接</h2><p>欢迎大家添加我的链接～格式参考如下～ ヾ(≧▽≦*)o</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Domenic</span> <span class="string">Zhang&#x27;s</span> <span class="string">Blog</span></span><br><span class="line">  <span class="attr">link:</span> <span class="string">https://domeniczz.github.io</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">https://domeniczz.github.io/img/avatar.png</span></span><br><span class="line">  <span class="attr">descr:</span> <span class="string">博客，学习分享，技术分享</span></span><br></pre></td></tr></table></figure>
 
-</div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Domenic Zhang</div><div class="author-info__description">博客，学习分享，技术分享 - Blog, Learning share, Technology share</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/domeniczz"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/domeniczz" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zhangdomenic@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_51893134" target="_blank" title="CSDN"><i class="fab fa-cuttlefish"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS-Link"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Domenic Zhang's Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="个人博客搭建教程"><img src="/img/top_img/index_img_worldmap_default.jpg" onerror="this.onerror=null;this.src='/img/404/404.jpg'" alt="个人博客搭建教程"/></a><div class="content"><a class="title" href="/2021/12/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="个人博客搭建教程">个人博客搭建教程</a><time datetime="2021-12-27T11:43:49.000Z" title="发表于 2021-12-27 19:43:49">2021-12-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+</div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Domenic Zhang</div><div class="author-info__description">博客，学习分享，技术分享 - Blog, Learning share, Technology share</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/domeniczz"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/domeniczz" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="https://gitee.com/zhang-domenic" target="_blank" title="Gitee"><i class="fas fa-code-branch"></i></a><a class="social-icon" href="mailto:zhangdomenic@outlook.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/m0_51893134" target="_blank" title="CSDN"><i class="fab fa-cuttlefish"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS-Link"><i class="fa fa-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Domenic Zhang's Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="个人博客搭建教程"><img src="/img/top_img/index_img_worldmap_default.jpg" onerror="this.onerror=null;this.src='/img/404/404.jpg'" alt="个人博客搭建教程"/></a><div class="content"><a class="title" href="/2021/12/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="个人博客搭建教程">个人博客搭建教程</a><time datetime="2021-12-27T11:43:49.000Z" title="发表于 2021-12-27 19:43:49">2021-12-27</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             
@@ -180,12 +195,107 @@ function panguInit () {
   }
 }
 
-document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法制,爱国,敬业,诚信,友善" data-fontsize="14px" data-random="false" async="async"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-show-text.min.js" data-mobile="false" data-text="富强,民主,文明,和谐,自由,平等,公正,法制,爱国,敬业,诚信,友善" data-fontsize="14px" data-random="false" async="async"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start -->
   <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js"></script>
   <script data-pjax>
         function GithubCalendarConfig(){
-            var git_githubapiurl ="https://python-gitee-calendar-api.vercel.app/api?domeniczz";
-            var git_color =['#ebedf0', '#f0fff4', '#dcffe4', '#bef5cb', '#85e89d', '#34d058', '#28a745', '#22863a', '#176f2c', '#165c26', '#144620'];
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?domeniczz";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
             var git_user ="domeniczz";
             var parent_div_git = document.getElementById('recent-posts');
             var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
